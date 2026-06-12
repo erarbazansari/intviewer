@@ -1,29 +1,25 @@
 {
-  "name": "backend",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "start": "bun run src/index.ts",
-    "dev": "bun --watch run src/index.ts",
-    "build": "bun build src/index.ts --outdir dist --target bun",
-    "lint": "eslint . --max-warnings 0",
-    "check-types": "tsc --noEmit"
-},
-
-
-
-
-
-  "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "6.0.3"
-  },
-  "dependencies": {
-    "@types/express": "^5.0.6",
-    "express": "^5.2.1"
-  }
+    "name": "backend-intviewer",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "start": "bun run index.ts",
+        "dev": "bun --watch run index.ts",
+        "lint": "eslint . --max-warnings 0",
+        "build": "bun build index.ts --outdir dist --target bun",
+        "check-types": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "@repo/eslint-config": "*",
+        "eslint": "^9.39.1"
+    },
+    "peerDependencies": {
+        "typescript": "6.0.3"
+    },
+    "dependencies": {
+        "@types/express": "^5.0.6",
+        "express": "^5.2.1"
+    }
 }
