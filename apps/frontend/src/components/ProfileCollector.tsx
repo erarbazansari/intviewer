@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
+import axios from "axios";
 
 export function ProfileCollector() {
     const [profileData, setProfileData] = useState({
@@ -8,12 +9,19 @@ export function ProfileCollector() {
         file: null as File | null,
     });
 
-    function startProfileCollector() {
-        if (!profileData.linkedinProfile && !profileData.githubProfile && !profileData.file) {
+    async function startProfileCollector() {
+        if (!profileData.linkedinProfile || !profileData.githubProfile) {
             console.log("fill data first")
-        } else {
-            console.log(profileData);
+            return;
         }
+
+        console.log("sending request to backend")
+        const res = await axios.post(`${process.env.BACKEND_SERVER_URL}/api/data-collector`, profileData)
+        if (!res.data) {
+            console.log("something is wrong with server.")
+            return
+        }
+        console.log("data fetched", res.data);
     }
 
     return (
