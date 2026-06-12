@@ -14,7 +14,7 @@ const elem = document.getElementById("root")!;
 const app = (
   <StrictMode>
     <App />
-    <Toaster/>
+    <Toaster />
   </StrictMode>
 );
 

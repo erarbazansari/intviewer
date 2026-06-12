@@ -6,10 +6,10 @@ const app = express();
 app.use(express.json());
 
 app.get("/health", (_, res) => {
-    res.json({
-        health: "ok",
-        environment: config.environment,
-    });
+  res.json({
+    health: "ok",
+    environment: config.environment,
+  });
 });
 
 app.use("/api", dataCollector);
